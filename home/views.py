@@ -3,4 +3,7 @@ from django.http import HttpResponse
 
 
 def index(request):
-    return render(request, 'home/index.html')
+    context = {
+        'title': 'Home'
+    }
+    return render(request, 'home/index.html', context)
