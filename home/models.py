@@ -7,3 +7,6 @@ class Commit(models.Model):
     url = models.URLField()
     date = models.DateTimeField()
     msg = models.TextField(blank=True)
+
+    def __str__(self):
+        return self.commit_id
