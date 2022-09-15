@@ -85,6 +85,28 @@
                 <div class="contact__text text">
                     <p><b class="boldcolor">Thanks</b> for visiting my website!<br>You can reach me directly by filling out the form below.</p>
                 </div>
+                <form action="" method="post" id="contact_form" class="contact__form form">
+                    {% csrf_token %}
+                    {% for field in form %}
+                        <div class="form__set {{ field.name }}">
+                            {{ field.label_tag }}
+                            {{ field }}
+                            <div id="{{ field.id }}_flash" class="form__field--flash">
+                                {{ field.errors }}
+                            </div>
+                        </div>
+                    {% endfor %}
+                    <div class="form__submit submit">
+                        <button class="form__submit-btn" type="submit">Send</button>
+                        {% if messages %}
+                            {% for message in messages %}
+                                <div class="form__alert">
+                                    {{ message }}
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                </form>
             </div>
          </section>
     </main>

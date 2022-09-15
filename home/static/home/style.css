@@ -664,7 +664,7 @@ h5 {
   justify-content: end;
 }
 
-.form__field {
+[id^='id_'] {
   width: 100%;
   padding: 8px 10px;
   font-size: 1.6rem;
