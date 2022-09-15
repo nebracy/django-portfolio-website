@@ -7,6 +7,7 @@ from .models import Commit
 
 
 def index(request):
+    form = ContactForm()
     if request.method == "POST":
         form = ContactForm(request.POST)
         if form.is_valid():
@@ -20,7 +21,6 @@ def index(request):
             return redirect('index')
 
     db_commits = Commit.objects.order_by('-date').all()[:3]
-    form = ContactForm()
     context = {
         'title': 'Home',
         'commits': db_commits,

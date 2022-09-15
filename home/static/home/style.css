@@ -675,6 +675,10 @@ h5 {
   margin-top: 5px;
 }
 
+ul.errorlist {
+  margin: 0;
+}
+
 .form__field--mask {
   display: none;
 }
