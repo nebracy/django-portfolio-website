@@ -1,8 +1,12 @@
+import hashlib
+import hmac
 from django.contrib import messages
 from django.core.mail import EmailMessage
-from django.http import HttpResponse, HttpResponseBadRequest, HttpResponseForbidden, JsonResponse
+from django.http import HttpResponse, HttpResponseBadRequest, HttpResponseForbidden
 from django.shortcuts import redirect, render
+from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
+from os import getenv
 from .forms import ContactForm
 from .models import Commit
 
@@ -30,7 +34,12 @@ def index(request):
     return render(request, 'home/index.html', context)
 
 
+@csrf_exempt
 @require_POST
 def webhook(request):
+    if request.headers.get("X-GitHub-Event") != 'push':
+        return HttpResponseBadRequest("Missing correct headers")
 
-    return JsonResponse({})
+    # todo process payload
+
+    return HttpResponse(status=204)
