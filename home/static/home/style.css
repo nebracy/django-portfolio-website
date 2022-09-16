@@ -458,7 +458,7 @@ h2 {
 .projects {
   padding: 30px 25px 60px;
   justify-content: center;
-  background-image: url(../img/python.webp);
+  background-image: url(../home/python.webp);
   background-size: 750px;
   background-repeat: no-repeat;
   background-position: right -10em bottom -5em;
@@ -500,7 +500,7 @@ h2 {
 
 .card__img {
   flex-basis: 43%;
-  background-image: url(../img/screen.png);
+  background-image: url(../home/screen.png);
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
