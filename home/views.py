@@ -1,6 +1,7 @@
 import hashlib
 import hmac
 import json
+from datetime import datetime
 from django.contrib import messages
 from django.core.mail import EmailMessage
 from django.http import HttpResponse, HttpResponseBadRequest, HttpResponseForbidden
@@ -51,6 +52,14 @@ def webhook(request):
     if payload['ref'] != 'refs/heads/master':
         return HttpResponseForbidden("Push was not to the master branch")
 
-    # todo process payload
+    commit_list = [
+        Commit(commit_id=commit['id'],
+               name=payload['repository']['name'],
+               url=payload['repository']['url'],
+               date=datetime.fromisoformat(commit['timestamp']),
+               msg=commit['message'])
+        for commit in payload['commits']
+    ]
+    Commit.objects.bulk_create(commit_list)
 
     return HttpResponse(status=204)
