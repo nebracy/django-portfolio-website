@@ -50,8 +50,8 @@ def webhook(request):
         return HttpResponseForbidden("Incorrect secret")
 
     payload = json.loads(request.body)
-    if payload['ref'] != 'refs/heads/master':
-        return HttpResponseForbidden("Push was not to the master branch")
+    if payload['ref'] != 'refs/heads/main':
+        return HttpResponseForbidden("Push was not to the main branch")
 
     commit_list = [
         Commit(commit_id=commit['id'],
