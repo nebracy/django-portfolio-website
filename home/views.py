@@ -1,5 +1,6 @@
 import hashlib
 import hmac
+import json
 from django.contrib import messages
 from django.core.mail import EmailMessage
 from django.http import HttpResponse, HttpResponseBadRequest, HttpResponseForbidden
@@ -39,6 +40,16 @@ def index(request):
 def webhook(request):
     if request.headers.get("X-GitHub-Event") != 'push':
         return HttpResponseBadRequest("Missing correct headers")
+
+    signature = request.headers['X-Hub-Signature']
+    secret = str.encode(getenv('GITHUB_HOOK_SECRET'))
+    hashhex = hmac.new(secret, request.body, hashlib.sha1).hexdigest()
+    if not hmac.compare_digest(hashhex, signature.removeprefix('sha1=')):
+        return HttpResponseForbidden("Incorrect secret")
+
+    payload = json.loads(request.body)
+    if payload['ref'] != 'refs/heads/master':
+        return HttpResponseForbidden("Push was not to the master branch")
 
     # todo process payload
 
