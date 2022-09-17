@@ -1,6 +1,11 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+from .forms import DoughCalculatorForm
 
 
 def calculator(request):
-    return render(request, 'pizzadough/calculator.html')
+    form = DoughCalculatorForm()
+    context = {
+        'form': form
+    }
+    return render(request, 'pizzadough/calculator.html', context)
