@@ -3,4 +3,4 @@ from django.shortcuts import render
 
 
 def calculator(request):
-    return HttpResponse('Test')
+    return render(request, 'pizzadough/calculator.html')
