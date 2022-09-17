@@ -1,0 +1,118 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    color: #313131;
+}
+
+h1 {
+    font-family: 'Averia Serif Libre', cursive;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 50px;
+    color: #DB301D;
+    text-shadow: 3px 3px 2px rgba(0,0,0,0.15);
+}
+
+input[type="radio"]:checked {
+    background-color: #DF4534;
+    border-color: #DF4534;
+}
+
+input[type="radio"]:focus {
+    border-color: #DF4534;
+    box-shadow: 0 0 0 .25rem #ffe2e2;
+}
+
+/* Slider Thumb */
+#thk_factor::-webkit-slider-thumb {
+    background: #DF4534;
+}
+
+#thk_factor::-moz-range-thumb {
+    background: #DF4534;
+}
+
+#thk_factor::-ms-thumb {
+    background: #DF4534;
+}
+
+/* Slider Thumb Focus*/
+input[type=range]:focus::-webkit-slider-thumb {
+    box-shadow: none;
+}
+#thk_factor:focus::-webkit-slider-thumb {
+    background: #ed8378;
+}
+
+input[type=range]:focus::-moz-range-thumb {
+    background: none;
+}
+#thk_factor:focus::-moz-range-thumb {
+    background: #ed8378;
+}
+
+input[type=range]:focus::-ms-thumb {
+    background: none;
+}
+#thk_factor:focus::-ms-thumb {
+    background: #ed8378;
+}
+
+/* Slider Track */
+input[type=range]::-webkit-slider-runnable-track  {
+    background: #f7e4c4;
+}
+
+input[type=range]::-moz-range-track {
+    background: #f7e4c4;
+}
+
+input[type=range]::-ms-track {
+    background: #f7e4c4;
+}
+
+.form-control:focus {
+    border-color: #ced4da;
+    box-shadow: 0 0 0 .25rem rgb(247, 228, 196,.50);
+}
+
+.optname {
+    border-width: 0 0 1px;
+    border-radius: 0;
+}
+
+.btn {
+    border-radius: 6px;
+    text-shadow: 0px 1px 0px #ffffff;
+    font-weight: 700;
+}
+input.btn {
+    box-shadow: 0px 2px 3px rgb(0 0 0 / 15%);
+    background: linear-gradient(to top, #eae0c280 5%, #fdfaf3 100%);
+    background-color: #eae0c2;
+    border: 1px solid #9d88587d;
+    color: #313131e0;
+    border-top-color: #e1e1e1;
+}
+input.btn:focus {
+    box-shadow: none;
+}
+
+a.btn, button#print {
+    font-size: 19px;
+    text-shadow: none;
+}
+
+button#hx-add {
+    font-weight: 500;
+    text-shadow: none;
+    border-color: #ced4da;
+}
+
+label.oz-g {
+    font-size: 0.9rem;
+}
+
+@media print {
+   .no-print{ display: none; }
+}
