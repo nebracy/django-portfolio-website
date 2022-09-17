@@ -5,16 +5,16 @@
 {% block head %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{% block title %}Nicole Bracy | {{ title }}{% endblock title %}</title>
+    {% block title %}<title>Nicole Bracy | {{ title }}</title>{% endblock title %}
     {% block desc %}
     <meta name="description" content="Nicole Bracy's personal website and sandbox showcasing a portfolio of mostly Python web apps and other projects.">
     {% endblock desc %}
     <meta name="author" content="Nicole Bracy">
     <link rel="icon" href="{% static 'favicon.ico' %}">
-    {% block styles %}
-    <link rel="stylesheet" href="{% static 'home/style.css' %}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    {% block styles %}
+    <link rel="stylesheet" href="{% static 'home/style.css' %}">
     <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Give+You+Glory&family=Thasadith&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
     {% endblock styles %}
     {% block script %}
