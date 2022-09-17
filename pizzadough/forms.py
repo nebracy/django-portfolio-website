@@ -6,7 +6,7 @@ OUNCES_GRAMS = [('ounces', 'oz'), ('grams', 'g')]
 
 
 class DoughCalculatorForm(forms.Form):
-    choice = forms.ChoiceField(label='TF/Weight', choices=TH_FACTOR_DOUGH_WT, initial='thick_factor', widget=forms.RadioSelect)
+    choice = forms.ChoiceField(label='TF/Weight', choices=TH_FACTOR_DOUGH_WT, initial='th_factor', widget=forms.RadioSelect)
     flour = forms.IntegerField(min_value=100, max_value=100, initial=100, widget=forms.HiddenInput)
     dough_wt = forms.DecimalField(label='Dough Weight', min_value=1, max_value=20000)
     g_oz = forms.ChoiceField(choices=OUNCES_GRAMS, initial='grams', widget=forms.RadioSelect)
