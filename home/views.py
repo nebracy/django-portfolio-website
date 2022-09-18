@@ -2,9 +2,7 @@ import hashlib
 import hmac
 import json
 from datetime import datetime
-from django.conf import settings
 from django.contrib import messages
-from django.core.mail import EmailMessage
 from django.http import HttpResponse, HttpResponseBadRequest, HttpResponseForbidden
 from django.shortcuts import redirect, render
 from django.views.decorators.csrf import csrf_exempt
@@ -19,12 +17,7 @@ def index(request):
     if request.method == "POST":
         form = ContactForm(request.POST)
         if form.is_valid():
-            name = form.cleaned_data["name"]
-            email = form.cleaned_data["email"]
-            subj = f'Contact Form: {form.cleaned_data["subj"]}'
-            msg = form.cleaned_data['msg']
-            email_msg = EmailMessage(subj, msg, email, [settings.CONTACT_EMAIL], reply_to=[f'{name} <{email}>'])
-            email_msg.send()
+            form.send_email()
             messages.success(request, 'Email sent, thank you!')
             return redirect('index')
 
