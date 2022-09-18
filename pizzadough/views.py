@@ -39,3 +39,7 @@ def calculator(request):
         'dough': dough
     }
     return render(request, 'pizzadough/calculator.html', context)
+
+
+def calculate(request):
+    return HttpResponse('placeholder')
