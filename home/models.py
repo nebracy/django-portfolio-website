@@ -8,5 +8,8 @@ class Commit(models.Model):
     date = models.DateTimeField()
     msg = models.TextField(blank=True)
 
+    class Meta:
+        ordering = ['-date']
+
     def __str__(self):
         return self.commit_id

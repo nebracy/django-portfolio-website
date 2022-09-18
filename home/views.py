@@ -21,10 +21,9 @@ def index(request):
             messages.success(request, 'Email sent, thank you!')
             return redirect('index')
 
-    db_commits = Commit.objects.order_by('-date').all()[:3]
     context = {
         'title': 'Home',
-        'commits': db_commits,
+        'commits': Commit.objects.all()[:4],
         'form': form
     }
     return render(request, 'home/index.html', context)
