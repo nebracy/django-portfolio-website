@@ -12,7 +12,7 @@ def calculator(request):
         form = DoughCalculatorForm(request.POST)
         if form.is_valid():
             data = form.cleaned_data
-            dough = {ing: {'Percent': data[ing]} for ing in data if not ing.endswith('_set')}
+            dough = {ing.replace('_', ' '): {'Percent': data[ing]} for ing in data if not ing.endswith('_set')}
 
             if data['dough_wt_set'] and data['choice_set'] == 'dough_wt':
                 dough_wt = data['dough_wt_set']
