@@ -42,4 +42,4 @@ def calculator(request):
 
 
 def calculate(request):
-    return HttpResponse('placeholder')
+    return render(request, 'pizzadough/calculate.html')
