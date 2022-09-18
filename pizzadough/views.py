@@ -7,6 +7,7 @@ from .forms import DoughCalculatorForm
 
 def calculator(request):
     form = DoughCalculatorForm()
+    dough = None
     if request.method == "POST":
         form = DoughCalculatorForm(request.POST)
         if form.is_valid():
@@ -32,8 +33,9 @@ def calculator(request):
                     kv |= {'Grams': weight * Decimal(28.349523125)}
 
             print(dough)
-            return redirect('pizza-dough')
+            # return redirect('pizza-dough')
     context = {
-        'form': form
+        'form': form,
+        'dough': dough
     }
     return render(request, 'pizzadough/calculator.html', context)
