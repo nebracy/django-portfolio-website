@@ -40,4 +40,4 @@ def calculate(request):
                 kv |= {'Ounces': weight * Decimal(0.03527396195)}
             else:
                 kv |= {'Grams': weight * Decimal(28.349523125)}
-    return render(request, 'pizzadough/calculate.html', {'dough': dough})
+    return render(request, 'pizzadough/table.html', {'dough': dough})
