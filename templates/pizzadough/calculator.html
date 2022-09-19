@@ -24,25 +24,25 @@
         </div>
         <section class="row justify-content-center mb-5 no-print">
             <div class="col-md-9 col-lg-8 col-xl-6">
-                <form action="" method="post" id="dough_calc" class="form-horizontal">
+                <form action="" method="post" id="dough_calc" class="form-horizontal" hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>
                     {% csrf_token %}
                     {{ form.as_div }}
                     <div class="col-sm-7 d-inline-flex justify-content-center">
-                        <input class="btn col-auto" id="calculate" name="calculate" type="submit" value="Calculate">
+                        <input class="btn col-auto" id="calculate" name="calculate" type="submit" value="Calculate" hx-post="{% url 'recipe-table' %}" hx-trigger="click" hx-target="#recipe">
                     </div>
                 </form>
             </div>
         </section>
-        {% if dough %}
+        {# if dough #}
         <section class="row justify-content-center">
             <div class="table-responsive col-lg-6 mb-4" id="recipe">
             </div>
         </section>
-        {% else %}
-        <div class="text-center mb-2 no-print">
-            <img src="{% static 'pizzadough/doughball.jpeg' %}" alt="pizza doughball" class="img-fluid">
-        </div>
-        {% endif %}
+        {# else #}
+<!--        <div class="text-center mb-2 no-print">-->
+<!--            <img src="{% static 'pizzadough/doughball.jpeg' %}" alt="pizza doughball" class="img-fluid">-->
+<!--        </div>-->
+        {# endif #}
         <div class="text-center no-print">
             <button type="button" id="print" class="btn btn-outline-success mx-1" hidden>Print</button>
             <a class="btn btn-outline-dark" href="{% url 'index' %}">Home</a>
