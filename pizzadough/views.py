@@ -8,9 +8,8 @@ from .forms import DoughCalculatorForm
 
 @require_GET
 def calculator(request):
-    form = DoughCalculatorForm()
     context = {
-        'form': form
+        'form': DoughCalculatorForm()
     }
     return render(request, 'pizzadough/calculator.html', context)
 
