@@ -18,10 +18,10 @@ def calculator(request):
 @require_POST
 def calculate(request):
     form = DoughCalculatorForm(request.POST)
-    dough = None
+    recipe_table = None
     if form.is_valid():
         data = form.cleaned_data
-        dough = {ing.replace('_', ' '): {'Percent': data[ing]} for ing in data if not ing.endswith('_set')}
+        recipe_table = {ing.replace('_', ' '): {'Percent': data[ing]} for ing in data if not ing.endswith('_set')}
 
         if data['dough_wt_set'] and data['choice_set'] == 'dough_wt':
             dough_wt = data['dough_wt_set']
@@ -29,15 +29,15 @@ def calculate(request):
             radius2 = (data['pizza_size_set'] / 2) ** 2
             dough_wt = data['thk_factor_set'] * Decimal(math.pi * radius2)
 
-        total_pct = sum(val['Percent'] for val in dough.values())
+        total_pct = sum(val['Percent'] for val in recipe_table.values())
         flour_wt = dough_wt * data['pizza_num_set'] / (total_pct / 100)
 
-        dough |= {'total': {'Percent': total_pct}}
-        for kv in dough.values():
+        recipe_table |= {'total': {'Percent': total_pct}}
+        for kv in recipe_table.values():
             weight = flour_wt * (kv['Percent']) / 100
             kv['Grams'] = kv['Ounces'] = weight
             if data['g_oz_set'] == 'g' and data['choice'] == 'Dough Weight':
                 kv |= {'Ounces': weight * Decimal(0.03527396195)}
             else:
                 kv |= {'Grams': weight * Decimal(28.349523125)}
-    return render(request, 'pizzadough/table.html', {'dough': dough})
+    return render(request, 'pizzadough/table.html', {'recipe_table': recipe_table})

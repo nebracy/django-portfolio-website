@@ -9,7 +9,7 @@
         </tr>
     </thead>
     <tbody>
-        {% for ingredient, amounts in dough.items %}
+        {% for ingredient, amounts in recipe_table.items %}
         <tr>
             <th>{{ ingredient | title }}</th>
             <td>{{ amounts.Percent | floatformat:-2 }}{{ '%' }}</td>
