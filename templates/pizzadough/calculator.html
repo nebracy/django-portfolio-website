@@ -28,7 +28,7 @@
                     {% csrf_token %}
                     {{ form.as_div }}
                     <div class="col-sm-7 d-inline-flex justify-content-center">
-                        <input class="btn col-auto" id="calculate" name="calculate" type="submit" value="Calculate" hx-post="{% url 'recipe-table' %}" hx-trigger="click" hx-target="#recipe">
+                        <input class="btn col-auto" id="calculate" name="calculate" type="submit" value="Calculate" hx-post="{% url 'calculate-table' %}" hx-trigger="click" hx-target="#recipe">
                     </div>
                 </form>
             </div>
