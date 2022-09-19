@@ -10,7 +10,7 @@ class DoughCalculatorForm(forms.Form):
     flour = forms.IntegerField(min_value=100, max_value=100, initial=100, widget=forms.HiddenInput)
     dough_wt_set = forms.DecimalField(label='Dough Weight', min_value=1, max_value=20000)
     g_oz_set = forms.ChoiceField(choices=OUNCES_GRAMS, initial='grams', widget=forms.RadioSelect)
-    thk_factor_set = forms.DecimalField(label='Thickness Factor', widget=forms.NumberInput(attrs={'type': 'range', 'min': '0.07', 'max': '0.1', 'value': '0.09', 'step': '0.005)'}))
+    thk_factor_set = forms.DecimalField(label='Thickness Factor', widget=forms.NumberInput(attrs={'type': 'range', 'min': '0.07', 'max': '0.1', 'value': '0.09', 'step': '0.005'}))
     pizza_size_set = forms.IntegerField(label='Pizza Size (in)', min_value=12, max_value=22, initial=16)
     pizza_num_set = forms.IntegerField(label='Pizza(s)', min_value=1, max_value=25, initial=1)
     water = forms.IntegerField(label='Hydration', widget=forms.NumberInput(attrs={'type': 'range', 'min': '55', 'max': '70', 'value': '61'}))
