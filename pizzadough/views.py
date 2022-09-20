@@ -37,7 +37,7 @@ def calculate(request):
     for kv in recipe_table.values():
         weight = flour_wt * (kv['Percent']) / 100
         kv['Grams'] = kv['Ounces'] = weight
-        if data['g_oz_set'] == 'g' and data['choice'] == 'Dough Weight':
+        if data['g_oz_set'] == 'grams' and data['choice_set'] == 'dough_wt':
             kv |= {'Ounces': weight * Decimal(0.03527396195)}
         else:
             kv |= {'Grams': weight * Decimal(28.349523125)}
