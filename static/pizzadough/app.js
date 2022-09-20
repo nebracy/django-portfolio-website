@@ -14,10 +14,10 @@ document.querySelectorAll('.slider').forEach(slider => {
 
 
 function tfWeight() {
-    const doughWt = document.getElementById('dough_wt');
-    const pizzaSz = document.getElementById('pizza_size');
+    const doughWt = document.getElementById('id_dough_wt_set');
+    const pizzaSz = document.getElementById('id_pizza_size_set');
 
-    if (document.getElementById('choice-0').checked) {
+    if (document.getElementById('id_choice_set_0').checked) {
         document.getElementById('choice-wt').style.display = "block";
         document.getElementById('choice-tf').style.display = "none";
         pizzaSz.required = false;
