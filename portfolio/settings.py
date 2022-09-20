@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'home.apps.HomeConfig',
     'pizzadough.apps.PizzadoughConfig',
     'django_htmx',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
