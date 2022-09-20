@@ -25,11 +25,7 @@
         <section class="row justify-content-center mb-5 no-print">
             <div class="col-md-9 col-lg-8 col-xl-6">
                 <form action="" method="post" id="dough_calc" class="form-horizontal" hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}' hx-post="{% url 'calculate-table' %}" hx-target="#recipe">
-                    {% csrf_token %}
-                    {{ form.as_div }}
-                    <div class="col-sm-7 d-inline-flex justify-content-center">
-                        <input class="btn col-auto" id="calculate" name="calculate" type="submit" value="Calculate">
-                    </div>
+                    {% include 'pizzadough/formcalc.html' %}
                 </form>
             </div>
         </section>
