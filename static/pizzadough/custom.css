@@ -13,9 +13,17 @@ h1 {
     text-shadow: 3px 3px 2px rgba(0,0,0,0.15);
 }
 
-input[type="radio"]:checked {
-    background-color: #DF4534;
-    border-color: #DF4534;
+li.form-check {
+    padding: 0;
+    margin-right: 25px;
+}
+
+input[type="radio"] {
+    width: 1em;
+    height: 1em;
+    margin-top: .25em;
+    vertical-align: top;
+    accent-color: #DF4534;
 }
 
 input[type="radio"]:focus {
