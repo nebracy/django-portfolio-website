@@ -10,12 +10,22 @@
     </thead>
     <tbody>
         {% for ingredient, amounts in recipe_table.items %}
-        <tr>
-            <th>{{ ingredient | title }}</th>
-            <td>{{ amounts.Percent | floatformat:-2 }}{{ '%' }}</td>
-            <td>{{ amounts.Grams | floatformat:-2 }}</td>
-            <td>{{ amounts.Ounces | floatformat:-2 }}</td>
-        </tr>
+            {% if not forloop.last %}
+                <tr>
+                    <th>{{ ingredient | title }}</th>
+                    <td>{{ amounts.Percent | floatformat:-2 }}{{ '%' }}</td>
+                    <td>{{ amounts.Grams | floatformat:-2 }}</td>
+                    <td>{{ amounts.Ounces | floatformat:-2 }}</td>
+                </tr>
+            {% endif %}
         {% endfor %}
     </tbody>
+    <tfoot>
+        <tr>
+            <th>{{ 'Total' }}</th>
+            <td>{{ recipe_table.total.Percent | floatformat:-2 }}{{ '%' }}</td>
+            <td>{{ recipe_table.total.Grams | floatformat:-2 }}</td>
+            <td>{{ recipe_table.total.Ounces | floatformat:-2 }}</td>
+        </tr>
+    </tfoot>
 </table>
