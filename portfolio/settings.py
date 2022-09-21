@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'pizzadough.apps.PizzadoughConfig',
     'django_htmx',
     'widget_tweaks',
-    'crispy_forms',
 ]
 
 MIDDLEWARE = [
