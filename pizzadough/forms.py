@@ -19,7 +19,6 @@ class DoughCalculatorForm(forms.Form):
     salt = forms.DecimalField(label='Salt', label_suffix=' %', min_value=0, max_value=4, step_size=0.05, initial=1.5)
     olive_oil = forms.DecimalField(label='Olive Oil', label_suffix=' %', min_value=0, max_value=8, step_size=0.05, initial=3, required=False)
     sugar = forms.DecimalField(label='Sugar', label_suffix=' %', min_value=0, max_value=4, step_size=0.05, initial=1.5, required=False)
-    # opt = forms.DecimalField(label='Ingredient', min_value=0, max_value=50, step_size=0.05, initial=0, required=False)
 
     def clean(self):
         cleaned_data = super().clean()
