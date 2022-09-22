@@ -7,7 +7,7 @@ class ContactForm(forms.Form):
     name = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'placeholder': 'Name'}))
     email = forms.EmailField(widget=forms.EmailInput(attrs={'placeholder': 'Email'}))
     subj = forms.CharField(label='Subject', max_length=100, widget=forms.TextInput(attrs={'placeholder': 'Subject'}))
-    msg = forms.CharField(label='Message', widget=forms.Textarea(attrs={'placeholder': 'Message'}))
+    msg = forms.CharField(label='Message', widget=forms.Textarea(attrs={'placeholder': 'Message', 'rows': '14'}))
 
     def send_email(self):
         email_msg = EmailMessage(
