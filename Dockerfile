@@ -11,4 +11,4 @@ RUN useradd appuser && chown -R appuser /app
 USER appuser
 
 EXPOSE 8000
-CMD ["gunicorn", "-b", "0.0.0.0:8000", "portfolio.wsgi:application"]
+CMD ["gunicorn", "-w", "3", "-b", "0.0.0.0:8000", "portfolio.wsgi"]
