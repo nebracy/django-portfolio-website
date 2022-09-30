@@ -8,7 +8,7 @@ def load_initial_data(apps, schema_editor):
 
 
 def delete_all_data(apps, schema_editor):
-    Commit = apps.get_models('home', 'Commit')
+    Commit = apps.get_model('home', 'Commit')
     Commit.objects.all().delete()
 
 
