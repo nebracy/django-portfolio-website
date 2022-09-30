@@ -3,6 +3,15 @@
 from django.db import migrations
 
 
+def load_initial_data(apps, schema_editor):
+    pass
+
+
+def delete_all_data(apps, schema_editor):
+    Commit = apps.get_models('home', 'Commit')
+    Commit.objects.all().delete()
+
+
 class Migration(migrations.Migration):
 
     dependencies = [
@@ -10,4 +19,5 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
+        migrations.RunPython(load_initial_data, delete_all_data)
     ]
