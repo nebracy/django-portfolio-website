@@ -27,7 +27,7 @@ SECRET_KEY = os.getenv('DJ_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['nicolebracy.com', 'www.nicolebracy.com', 'static.nicolebracy.com']
+ALLOWED_HOSTS = ['nicolebracy.com', 'www.nicolebracy.com', 's3.nicolebracy.com']
 
 
 # Application definition
