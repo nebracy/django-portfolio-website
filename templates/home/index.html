@@ -90,7 +90,9 @@
                     {% csrf_token %}
                     {% for field in form %}
                         <div class="form__set {{ field.name }}">
-                            {{ field.label_tag }}
+                            {% if not forloop.last %}
+                                {{ field.label_tag }}
+                            {% endif %}
                             {{ field }}
                             <div id="{{ field.id }}_flash" class="form__field--flash">
                                 {{ field.errors }}
