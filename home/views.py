@@ -1,7 +1,7 @@
 import hashlib
 import hmac
 import json
-from datetime import datetime
+from datetime import datetime, timezone
 from django.contrib import messages
 from django.http import HttpResponse, HttpResponseBadRequest, HttpResponseForbidden
 from django.shortcuts import redirect, render
@@ -49,7 +49,7 @@ def webhook(request):
         Commit(commit_id=commit['id'],
                name=payload['repository']['name'],
                url=payload['repository']['url'],
-               date=datetime.fromisoformat(commit['timestamp']),
+               date=datetime.fromisoformat(commit['timestamp']).astimezone(timezone.utc),
                msg=commit['message'])
         for commit in payload['commits']
     ]
