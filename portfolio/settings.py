@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     'django_htmx',
     'widget_tweaks',
     'storages',
-    'captcha',
 ]
 
 MIDDLEWARE = [
@@ -165,10 +164,6 @@ AWS_LOCATION = 'static'
 
 STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/'
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-
-
-RECAPTCHA_PUBLIC_KEY = '6LfJzkgiAAAAAF6Gub5hZOIY45jTjVE-9DzXJWjM'
-RECAPTCHA_PRIVATE_KEY = os.getenv('RECAPTCHA_PRIVATE_KEY')
 
 
 # Custom settings

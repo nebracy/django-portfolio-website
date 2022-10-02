@@ -5,4 +5,3 @@ django-storages==1.13.1
 boto3==1.24.80
 gunicorn==20.1.0
 PyGithub==1.55
-django-recaptcha==3.0.0

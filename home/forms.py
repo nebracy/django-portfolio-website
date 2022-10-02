@@ -1,8 +1,6 @@
 from django.conf import settings
 from django.core.mail import EmailMessage
 from django import forms
-from captcha.fields import ReCaptchaField
-from captcha.widgets import ReCaptchaV2Invisible
 
 
 class ContactForm(forms.Form):
@@ -10,7 +8,6 @@ class ContactForm(forms.Form):
     email = forms.EmailField(widget=forms.EmailInput(attrs={'placeholder': 'Email'}))
     subj = forms.CharField(label='Subject', max_length=100, widget=forms.TextInput(attrs={'placeholder': 'Subject'}))
     msg = forms.CharField(label='Message', widget=forms.Textarea(attrs={'placeholder': 'Message', 'rows': '14'}))
-    captcha = ReCaptchaField(widget=ReCaptchaV2Invisible)
 
     def send_email(self):
         email_msg = EmailMessage(
