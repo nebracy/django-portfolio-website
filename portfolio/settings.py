@@ -168,6 +168,7 @@ STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 # Custom settings
 CONTACT_EMAIL = 'contact@nicolebracy.com'
+NUM_OF_COMMITS = 4
 
 
 if os.environ.get('LOCAL_DEVELOPMENT', False):

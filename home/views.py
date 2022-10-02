@@ -2,6 +2,7 @@ import hashlib
 import hmac
 import json
 from datetime import datetime, timezone
+from django.conf import settings
 from django.contrib import messages
 from django.http import HttpResponse, HttpResponseBadRequest, HttpResponseForbidden
 from django.shortcuts import redirect, render
@@ -23,7 +24,7 @@ def index(request):
 
     context = {
         'title': 'Home',
-        'commits': Commit.objects.all()[:4],
+        'commits': Commit.objects.all()[:settings.NUM_OF_COMMITS],
         'form': form
     }
     return render(request, 'home/index.html', context)
