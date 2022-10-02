@@ -168,3 +168,10 @@ STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 # Custom settings
 CONTACT_EMAIL = 'contact@nicolebracy.com'
+
+
+if os.environ.get('LOCAL_DEVELOPMENT', False):
+    try:
+        from portfolio.settings_local import *
+    except ImportError:
+        print('Missing settings_local.py')
