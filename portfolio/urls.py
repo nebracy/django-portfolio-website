@@ -21,3 +21,5 @@ urlpatterns = [
     path('', include('home.urls')),
     path('pizza-dough-calculator/', include('pizzadough.urls')),
 ]
+
+handler404 = 'home.views.page_not_found'
